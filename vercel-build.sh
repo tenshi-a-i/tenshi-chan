@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Asignar más memoria para evitar caídas durante la compilación recursiva
+export NODE_OPTIONS="--max-old-space-size=4096"
+
 pnpm -F @proj-airi/stage-web run build && \
 pnpm -F @proj-airi/docs run build:base && \
 mv ./docs/.vitepress/dist ./apps/stage-web/dist/docs && \
